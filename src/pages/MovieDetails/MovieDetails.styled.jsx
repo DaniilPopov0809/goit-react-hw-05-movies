@@ -2,11 +2,10 @@ import styled from '@emotion/styled';
 import { Link, NavLink } from 'react-router-dom';
 
 export const CardSection = styled.section`
-padding: 10px 0;
+  padding: 10px 0;
 
   border-bottom: 1px solid var(--link-color);
 `;
-
 
 export const BackLink = styled(Link)`
   display: inline-block;
@@ -30,7 +29,7 @@ export const BackLink = styled(Link)`
 
 export const InfoWrapper = styled.div``;
 
-export const DeteilsWrapper = styled.div`  
+export const DeteilsWrapper = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -62,14 +61,13 @@ export const SubTitle = styled.h3`
 `;
 
 export const AdditionalSection = styled.section`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 10px 0;
-border-bottom: 1px solid var(--link-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--link-color);
 `;
-
 
 export const AdditionalLink = styled(NavLink)`
   display: inline-block;
@@ -95,5 +93,4 @@ export const AdditionalLink = styled(NavLink)`
 export const AdditionalList = styled.ul`
   display: flex;
   gap: 5px;
-  
 `;

@@ -4,7 +4,17 @@ import { toast } from 'react-toastify';
 import Loader from 'components/Loader/Loader';
 import { LoaderWrapper } from '../Layout/Layout.styled';
 import { getReviewsFilmAPI } from 'utils/API';
-import { List, Item, Title, Description } from './Reviews.styled';
+import {
+  List,
+  Item,
+  Title,
+  Description,
+  Image,
+  ItemWrap,
+  Date,
+  Message,
+} from './Reviews.styled';
+import NotFoundAvatar from '../../image/not_found_avatar.png';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -17,11 +27,6 @@ const Reviews = () => {
       setIsLoading(true);
       try {
         const data = await getReviewsFilmAPI(movieId);
-        console.log(
-          '🚀 ~ file: Reviews.jsx:19 ~ getReviews ~ data:',
-          data.results
-        );
-
         setReviews(data.results);
       } catch {
         toast.error('Oops, something went wrong!');
@@ -33,6 +38,22 @@ const Reviews = () => {
     getReviews();
   }, [movieId]);
 
+  const getDate = str => {
+    return `${str.slice(0, 10)} ${str.slice(11, 16)}`;
+  };
+
+  const checkAvatar = avatar => {
+    let path = '';
+    if (avatar.avatar_path) {
+      path = avatar.avatar_path.slice(1);
+    }
+
+    if (!avatar.avatar_path || avatar.avatar_path.length < 40) {
+      path = NotFoundAvatar;
+    }
+    return path;
+  };
+
   return (
     <>
       {isLoading && (
@@ -41,19 +62,25 @@ const Reviews = () => {
         </LoaderWrapper>
       )}
       {!isLoading && reviews.length === 0 ? (
-        <p>We don't reviews for this movie</p>
+        <Message>We don't reviews for this movie...</Message>
       ) : (
         <List>
-          {reviews.map(({ author, content, id }) => {
-            return (
-              <Item key={id}>
-                <Title>
-                  Author: {author}
-                </Title>
-                <Description>{content}</Description>
-              </Item>
-            );
-          })}
+          {reviews.map(
+            ({ author, content, id, author_details, updated_at }) => {
+              const getdDate = getDate(updated_at);
+              const pathAvatar = checkAvatar(author_details);
+              return (
+                <Item key={id}>
+                  <Image src={pathAvatar} alt={author_details.username} />
+                  <ItemWrap>
+                    <Title>{author}</Title>
+                    <Date>{getdDate}</Date>
+                    <Description>{content}</Description>
+                  </ItemWrap>
+                </Item>
+              );
+            }
+          )}
         </List>
       )}
     </>

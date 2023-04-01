@@ -6,7 +6,7 @@ export const List = styled.ul`
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: 20px;
-  padding: 10px 0;
+  padding: 15px 0;
   border-bottom: 1px solid var(--link-color);
 `;
 
@@ -20,8 +20,9 @@ export const Item = styled.li`
 `;
 
 export const ItemLink = styled(Link)`
-  font-size: 16px;
-  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--secondary-text-color);
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -32,6 +33,8 @@ export const ItemLink = styled(Link)`
 `;
 
 export const Description = styled.p`
+  font-weight: 500;
+  font-size: 20px;
   padding: 12px 0;
 `;
 

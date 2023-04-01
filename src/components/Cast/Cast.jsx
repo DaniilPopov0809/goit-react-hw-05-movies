@@ -2,10 +2,11 @@ import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCreditsFilmAPI } from 'utils/API';
-import {LoaderWrapper} from '../Layout/Layout.styled';  
+import { LoaderWrapper } from '../Layout/Layout.styled';
 import notFoundImg from '../../image/not_found_img.png';
 import Loader from 'components/Loader/Loader';
-import {List, Item, Image} from './Cast.styled';
+import { List, Item, Image, Name, Character } from './Cast.styled';
+import { Message } from 'components/Reviews/Reviews.styled';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/original';
 
@@ -33,9 +34,13 @@ const Cast = () => {
 
   return (
     <>
-      {isLoading && <LoaderWrapper><Loader /></LoaderWrapper>}
+      {isLoading && (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      )}
       {!isLoading && cast.length === 0 ? (
-        <p>We don't characters for this movie</p>
+        <Message>We don't characters for this movie...</Message>
       ) : (
         <List>
           {cast.map(({ name, profile_path, character, id }) => {
@@ -49,11 +54,11 @@ const Cast = () => {
                   }
                   alt={character}
                 />
-                <p>{name}</p>
-                <p>
-                  <span>Characters: </span>
+                <Name>{name}</Name>
+                <Character>
+                  Character:
                   {character}
-                </p>
+                </Character>
               </Item>
             );
           })}

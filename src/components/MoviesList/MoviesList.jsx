@@ -1,4 +1,5 @@
 import { List, Item, ItemLink, Description, Image } from './MoviesList.styled';
+import PropTypes from 'prop-types';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/original';
 
@@ -20,3 +21,7 @@ const MoviesList = ({ trendFilms }) => {
 };
 
 export default MoviesList;
+
+MoviesList.propTypes = {
+  trendFilms: PropTypes.array,
+};

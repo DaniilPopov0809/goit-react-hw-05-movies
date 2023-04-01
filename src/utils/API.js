@@ -38,9 +38,10 @@ async function getReviewsFilmAPI(movieId) {
 }
 
 async function getSearchFilmAPI(searchMovie) {
-  const KEY = '5928663a35cf4a3fefab8899a0242484'
+  const KEY = '5928663a35cf4a3fefab8899a0242484';
   const response = await axios.get(
-    `${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${searchMovie}&page=1&include_adult=false`);
+    `${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${searchMovie}&page=1&include_adult=false`
+  );
   const data = response.data;
   return data;
 }

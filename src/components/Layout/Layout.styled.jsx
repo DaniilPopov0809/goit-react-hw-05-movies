@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.ul`
   display: flex;
@@ -34,7 +34,7 @@ export const LinkNav = styled(NavLink)`
   color: var(--link-color);
 
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-  border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:focus,
   &:hover {
@@ -53,6 +53,8 @@ export const Container = styled.div`
   margin-right: auto;
   min-width: 320px;
 
+  box-sizing: border-box;
+
   @media screen and (min-width: 480px) {
     width: 480px;
   }
@@ -65,8 +67,6 @@ export const Container = styled.div`
     width: 1280px;
   }
 `;
-
-
 
 export const FooterWrappper = styled.div`
   display: flex;

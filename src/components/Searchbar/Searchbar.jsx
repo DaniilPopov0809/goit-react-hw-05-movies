@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useSearchParams } from 'react-router-dom';
-import {Form, Input, Button} from './Searchbar.styled'
+import { Form, Input, Button, FormWrap, Lupa } from './Searchbar.styled';
+import PropTypes from 'prop-types';
 
 const Searchbar = ({ onSubmit }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,17 +29,25 @@ const Searchbar = ({ onSubmit }) => {
   return (
     <>
       <Form onSubmit={handleSumbitForm}>
-        <Input
-          type="text"
-          name="inputSearch"
-          placeholder="Enter the movie"
-          defaultValue={searchQuery}
-          autoFocus
-        />
-        <Button type="submit">Search</Button>
+        <FormWrap>
+          <Input
+            type="text"
+            name="inputSearch"
+            placeholder="Enter the movie"
+            defaultValue={searchQuery}
+            autoFocus
+          />
+          <Button type="submit">
+            <Lupa style={{ width: 20, height: 20 }} />
+          </Button>
+        </FormWrap>
       </Form>
     </>
   );
 };
 
 export default Searchbar;
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func,
+};
