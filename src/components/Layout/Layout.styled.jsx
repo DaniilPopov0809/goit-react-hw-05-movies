@@ -5,6 +5,10 @@ export const NavList = styled.ul`
   display: flex;
   list-style: none;
 
+  @media screen and (max-width: 767px) {
+    justify-content: space-around;
+  }
+
   border-bottom: 1px solid var(--link-color);
 
   padding: 10px 0;
@@ -47,6 +51,7 @@ export const LinkNav = styled(NavLink)`
 `;
 
 export const Container = styled.div`
+  position: relative;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;

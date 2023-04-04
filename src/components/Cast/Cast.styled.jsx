@@ -13,8 +13,12 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+
+  @media screen and (max-width: 767px) {
+    flex-basis: calc((100% - 20px) / 2);
+  }
+
   @media screen and (min-width: 768px) {
     flex-basis: calc((100% - 40px) / 3);
   }

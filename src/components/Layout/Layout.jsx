@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { LinkNav } from './Layout.styled';
 import Loader from 'components/Loader/Loader';
+import { ButtonTop } from '../ButtonTop/ButtonTop';
+
 import {
   NavList,
   NavItem,
@@ -35,6 +37,7 @@ const Layout = () => {
         </NavList>
       </header>
       <main>
+        
         <Suspense
           fallback={
             <LoaderWrapper>
@@ -42,7 +45,9 @@ const Layout = () => {
             </LoaderWrapper>
           }
         >
+          
           <Outlet />
+          
         </Suspense>
       </main>
       <footer>
@@ -51,6 +56,7 @@ const Layout = () => {
           <MailLink href="mailto:x6uhrox@gmail.com">x6uhrox@gmail.com</MailLink>
         </FooterWrappper>
       </footer>
+      <ButtonTop />
     </Container>
   );
 };
