@@ -1,9 +1,9 @@
 import * as Scroll from 'react-scroll';
-import { Button } from './ButtonTop.styled';
-import { ToTop } from './ButtonTop.styled';
+import { Button } from './ButtonToTop.styled';
+import { ToTop } from './ButtonToTop.styled';
 import { useState, useEffect } from 'react';
 
-export const ButtonTop = () => {
+export const ButtonToTop = () => {
   const [visibleButton, setVisibleButton] = useState(false);
 
   useEffect(() => {
