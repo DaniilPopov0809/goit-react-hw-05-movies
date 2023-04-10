@@ -30,6 +30,7 @@ export const BackLink = styled(Link)`
 export const InfoWrapper = styled.div``;
 
 export const DeteilsWrapper = styled.div`
+position: relative;
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -93,4 +94,19 @@ export const AdditionalLink = styled(NavLink)`
 export const AdditionalList = styled.ul`
   display: flex;
   gap: 5px;
+`;
+
+export const Year = styled.p`
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0 0 10px 0;
+`;
+
+export const Grade = styled.p`
+  position: absolute;
+  top: 0;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 5px 10px;
+  background-color: var(--accent-color);
 `;

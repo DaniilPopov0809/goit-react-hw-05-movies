@@ -5,7 +5,7 @@ import { getCreditsFilmAPI } from 'utils/API';
 import { LoaderWrapper } from '../Layout/Layout.styled';
 import notFoundImg from '../../image/not_found_img.png';
 import Loader from 'components/Loader/Loader';
-import { List, Item, Image, Name, Character } from './Cast.styled';
+import { List, Item, Image, Name, Character, Wrapper } from './Cast.styled';
 import { Message } from 'components/Reviews/Reviews.styled';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/original';
@@ -54,11 +54,13 @@ const Cast = () => {
                   }
                   alt={character}
                 />
+                <Wrapper>
                 <Name>{name}</Name>
                 <Character>
                   Character:
                   {character}
                 </Character>
+                </Wrapper>
               </Item>
             );
           })}

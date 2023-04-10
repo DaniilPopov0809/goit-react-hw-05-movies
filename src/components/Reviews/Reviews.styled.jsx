@@ -2,11 +2,22 @@ import styled from '@emotion/styled';
 
 export const List = styled.ul`
   border-bottom: 1px solid var(--link-color);
+  padding: 10px 0;
 `;
 
 export const Item = styled.li`
   display: flex;
-  padding: 10px 0;
+  padding: 10px;
+
+  box-shadow: var(--shadow);
+
+  border: 1px solid var(--link-color);
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const Description = styled.p`

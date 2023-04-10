@@ -4,13 +4,28 @@ import { Link } from 'react-router-dom';
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  row-gap: 10px;
-  column-gap: 20px;
+  gap: 20px;
   padding: 15px 0;
   border-bottom: 1px solid var(--link-color);
 `;
 
 export const Item = styled.li`
+  box-sizing: border-box;
+  position: relative;
+  scale: 1;
+  transition: scale 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    scale: 1.05;
+  }
+
+  box-shadow: var(--shadow);
+
+  border: 1px solid var(--link-color);
+  border-radius: 10px;
+  overflow: hidden;
+
   @media screen and (min-width: 768px) {
     flex-basis: calc((100% - 20px) / 2);
   }
@@ -18,11 +33,18 @@ export const Item = styled.li`
     flex-basis: calc((100% - 60px) / 4);
   }
 `;
+export const Grade = styled.p`
+  position: absolute;
+  top: 0;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 5px 10px;
+  background-color: var(--accent-color);
+  
+`;
 
 export const ItemLink = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
   color: var(--secondary-text-color);
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -31,19 +53,22 @@ export const ItemLink = styled(Link)`
     color: var(--accent-color);
   }
 `;
+export const Wrapper = styled.div`
+  text-align: center;
+`;
 
 export const Description = styled.p`
   font-weight: 500;
   font-size: 20px;
-  padding: 12px 0;
+  padding: 10px 5px;
 `;
 
-export const Image = styled.img`
-  scale: 1;
-  transition: scale 400ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:focus,
-  &:hover {
-    scale: 1.05;
-  }
+export const Year = styled.p`
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0 0 10px 0;
 `;
+
+
+
+export const Image = styled.img``;

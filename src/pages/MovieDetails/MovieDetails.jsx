@@ -18,6 +18,8 @@ import {
   AdditionalSection,
   AdditionalLink,
   AdditionalList,
+  Year,
+  Grade,
 } from './MovieDetails.styled';
 import notFoundPoster from '../../image/not_found_poster.png';
 const IMGPATH = 'https://image.tmdb.org/t/p/w500';
@@ -46,11 +48,13 @@ const MovieDetails = () => {
     getMovieDetails();
   }, [movieId]);
 
-  const { poster_path, title, vote_average, overview } = movieDetails;
+  const { poster_path, title, vote_average, overview, release_date
+  } = movieDetails;
 
+  
   return (
     <>
-      <CardSection>
+      { (Object.keys(movieDetails).length !== 0) && <CardSection>
         <BackLink to={backLocationRef.current}>
           <MdOutlineArrowBackIos size={12} />
           Go Back
@@ -70,9 +74,12 @@ const MovieDetails = () => {
             <Description>{overview}</Description>
             <SubTitle>Genres</SubTitle>
             <Description>{genres}</Description>
+            <SubTitle>Release:</SubTitle>
+            <Year>{release_date.slice(0, 4)}</Year>
           </InfoWrapper>
+          <Grade>{vote_average.toFixed(2)}</Grade>
         </DeteilsWrapper>
-      </CardSection>
+      </CardSection> }
 
       <AdditionalSection>
         <Title>Additional information</Title>

@@ -11,9 +11,16 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   text-align: center;
+
+  box-shadow: var(--shadow);
+
+  border: 1px solid var(--link-color);
+  border-radius: 10px;
+  overflow: hidden;
 
   @media screen and (max-width: 767px) {
     flex-basis: calc((100% - 20px) / 2);
@@ -31,10 +38,15 @@ export const Image = styled.img`
   margin-bottom: 10px;
 `;
 
+export const Wrapper = styled.div`
+padding: 10px;
+`;
+
+
 export const Character = styled.p``;
 
 export const Name = styled.p`
   font-weight: 500;
   color: var(--link-color);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `;

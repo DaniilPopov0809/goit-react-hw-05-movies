@@ -5,9 +5,9 @@ export const NavList = styled.ul`
   display: flex;
   list-style: none;
 
-  @media screen and (max-width: 767px) {
+  /* @media screen and (max-width: 767px) {
     justify-content: space-around;
-  }
+  } */
 
   border-bottom: 1px solid var(--link-color);
 

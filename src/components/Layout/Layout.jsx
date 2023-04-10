@@ -3,6 +3,8 @@ import { Outlet } from 'react-router-dom';
 import { LinkNav } from './Layout.styled';
 import Loader from 'components/Loader/Loader';
 import { ButtonToTop } from '../ButtonToTop/ButtonToTop';
+import Toggle from '../Toggle/Toggle';
+import { ThemeContext, themes } from '../../contexts/ThemeContexts/ThemeContext';
 
 import {
   NavList,
@@ -35,6 +37,17 @@ const Layout = () => {
             </LinkNav>
           </NavItem>
         </NavList>
+        <ThemeContext.Consumer>
+          {({ theme, setTheme }) => (
+            <Toggle
+              onChange={() => {
+                if (theme === themes.light) setTheme(themes.dark);
+                if (theme === themes.dark) setTheme(themes.light);
+              }}
+              value={theme === themes.dark}
+            />
+          )}
+        </ThemeContext.Consumer>
       </header>
       <main>
         <Suspense

@@ -12,6 +12,8 @@ import {
   Image,
   Item,
   ItemLink,
+  Year,
+  Grade,
 } from '../../components/MoviesList/MoviesList.styled';
 import notFoundPoster from '../../image/not_found_poster.png';
 
@@ -40,7 +42,6 @@ const Movies = () => {
         setIsLoading(false);
       }
     };
-
     if (searchMovie) {
       getSearchFilm();
     }
@@ -56,7 +57,7 @@ const Movies = () => {
       )}
       {foundMovies.length !== 0 && searchMovie && (
         <List>
-          {foundMovies.map(({ title, poster_path, id }) => {
+          {foundMovies.map(({ title, poster_path, id, release_date, vote_average  }) => {
             return (
               <Item key={id}>
                 <ItemLink state={{ from: location }} to={`/movies/${id}`}>
@@ -71,7 +72,10 @@ const Movies = () => {
                     />
                   }
                   <Description>{title}</Description>
+                  <Year>{`${release_date.slice(0, 4)}`}</Year>
+                  
                 </ItemLink>
+                <Grade>{`${vote_average.toFixed(2)}`}</Grade>
               </Item>
             );
           })}
