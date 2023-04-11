@@ -1,9 +1,16 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+export const Header = styled.header`
+/* display: flex;
+justify-content: space-between;
+align-items: center; */
+`;
+
 export const NavList = styled.ul`
   display: flex;
   list-style: none;
+  margin-right: 20px;
 
   /* @media screen and (max-width: 767px) {
     justify-content: space-around;
@@ -13,6 +20,8 @@ export const NavList = styled.ul`
 
   padding: 10px 0;
 `;
+
+
 
 export const NavItem = styled.li`
   &:not(:last-child) {

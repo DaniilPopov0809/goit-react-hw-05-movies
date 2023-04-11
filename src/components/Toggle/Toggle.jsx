@@ -3,6 +3,7 @@ import React from 'react';
 import { Input, Slider, Wave, Moon, Sun } from './Toggle.styled';
 
 const Toggle = ({ value, onChange }) => {
+  
   return (
     <label htmlFor="toggler">
       <Input
@@ -12,7 +13,7 @@ const Toggle = ({ value, onChange }) => {
         checked={value}
         readOnly
       />
-
+    
       <Slider />
       <Wave />
       {value && <Moon size={20} />}

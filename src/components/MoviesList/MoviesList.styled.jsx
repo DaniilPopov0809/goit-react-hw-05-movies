@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { Link } from 'react-router-dom';
 
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 15px 0;
+  gap: 25px;
+  padding: 20px 0;
   border-bottom: 1px solid var(--link-color);
 `;
 
@@ -27,10 +27,10 @@ export const Item = styled.li`
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    flex-basis: calc((100% - 20px) / 2);
+    flex-basis: calc((100% - 25px) / 2);
   }
   @media screen and (min-width: 1280px) {
-    flex-basis: calc((100% - 60px) / 4);
+    flex-basis: calc((100% - 75px) / 4);
   }
 `;
 export const Grade = styled.p`
@@ -47,6 +47,10 @@ export const ItemLink = styled(Link)`
   
   color: var(--secondary-text-color);
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover ${Grade} {
+    color: var(--secondary-text-color);
+  } 
 
   &:focus,
   &:hover {

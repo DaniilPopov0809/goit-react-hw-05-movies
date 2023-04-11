@@ -96,11 +96,7 @@ export const AdditionalList = styled.ul`
   gap: 5px;
 `;
 
-export const Year = styled.p`
-  font-weight: 500;
-  font-size: 16px;
-  padding: 0 0 10px 0;
-`;
+
 
 export const Grade = styled.p`
   position: absolute;

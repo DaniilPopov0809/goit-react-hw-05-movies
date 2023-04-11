@@ -15,6 +15,7 @@ import {
   FooterWrappper,
   LoaderWrapper,
   MailLink,
+  Header,
 } from './Layout.styled';
 import { AiFillHome } from 'react-icons/ai';
 import { MdLocalMovies } from 'react-icons/md';
@@ -22,7 +23,7 @@ import { MdLocalMovies } from 'react-icons/md';
 const Layout = () => {
   return (
     <Container>
-      <header>
+      <Header>
         <NavList>
           <NavItem>
             <LinkNav to="/">
@@ -48,7 +49,7 @@ const Layout = () => {
             />
           )}
         </ThemeContext.Consumer>
-      </header>
+      </Header>
       <main>
         <Suspense
           fallback={

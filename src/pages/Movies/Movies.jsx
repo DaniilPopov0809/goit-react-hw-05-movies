@@ -14,6 +14,7 @@ import {
   ItemLink,
   Year,
   Grade,
+  Wrapper,
 } from '../../components/MoviesList/MoviesList.styled';
 import notFoundPoster from '../../image/not_found_poster.png';
 
@@ -57,28 +58,32 @@ const Movies = () => {
       )}
       {foundMovies.length !== 0 && searchMovie && (
         <List>
-          {foundMovies.map(({ title, poster_path, id, release_date, vote_average  }) => {
-            return (
-              <Item key={id}>
-                <ItemLink state={{ from: location }} to={`/movies/${id}`}>
-                  {
-                    <Image
-                      src={
-                        poster_path
-                          ? `${IMGPATH}${poster_path}`
-                          : `${notFoundPoster}`
-                      }
-                      alt={title}
-                    />
-                  }
-                  <Description>{title}</Description>
-                  <Year>{`${release_date.slice(0, 4)}`}</Year>
+          {foundMovies.map(
+            ({ title, poster_path, id, release_date, vote_average }) => {
+              return (
+                <Item key={id}>
+                  <ItemLink state={{ from: location }} to={`/movies/${id}`}>
+                    {
+                      <Image
+                        src={
+                          poster_path
+                            ? `${IMGPATH}${poster_path}`
+                            : `${notFoundPoster}`
+                        }
+                        alt={title}
+                      />
+                    }
+                    <Wrapper>
+                    <Description>{title}</Description>
+                    <Year>{`${release_date.slice(0, 4)}`}</Year>
+                    </Wrapper>
+                    <Grade>{`${vote_average.toFixed(2)}`}</Grade>
+                  </ItemLink>
                   
-                </ItemLink>
-                <Grade>{`${vote_average.toFixed(2)}`}</Grade>
-              </Item>
-            );
-          })}
+                </Item>
+              );
+            }
+          )}
         </List>
       )}
       {foundMovies.length === 0 && searchMovie && !isLoading && (

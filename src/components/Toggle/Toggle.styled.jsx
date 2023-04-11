@@ -72,3 +72,5 @@ export const Sun = styled(BsSunFill)`
   right: 50px;
   color: var(--accent-color);
 `;
+
+

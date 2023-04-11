@@ -16,6 +16,11 @@ export const Input = styled.input`
   border: none;
   font-size: 16px;
   outline: var(--secondary-text-color) solid 2px;
+
+ &:hover,
+ &:focus {
+  outline: 3px solid var(--accent-color);
+ }
 `;
 
 export const Button = styled.button`
@@ -27,7 +32,7 @@ export const Button = styled.button`
   padding: 0;
   cursor: pointer;
   outline: none;
-  color: var(--link-color);
+  color: var(--lupa-color);
 `;
 
 export const FormWrap = styled.div`

@@ -18,7 +18,6 @@ import {
   AdditionalSection,
   AdditionalLink,
   AdditionalList,
-  Year,
   Grade,
 } from './MovieDetails.styled';
 import notFoundPoster from '../../image/not_found_poster.png';
@@ -75,7 +74,7 @@ const MovieDetails = () => {
             <SubTitle>Genres</SubTitle>
             <Description>{genres}</Description>
             <SubTitle>Release:</SubTitle>
-            <Year>{release_date.slice(0, 4)}</Year>
+            <Description>{release_date.slice(0, 4)}</Description>
           </InfoWrapper>
           <Grade>{vote_average.toFixed(2)}</Grade>
         </DeteilsWrapper>

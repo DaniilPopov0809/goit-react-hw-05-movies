@@ -7,8 +7,11 @@ const PARAMS = {
   },
 };
 
-async function getTrendingFilmAPI() {
-  const response = await axios.get(`${BASE_URL}trending/movie/day`, PARAMS);
+async function getTrendingFilmAPI(param) {
+  const response = await axios.get(
+    `${BASE_URL}trending/movie/${param}`,
+    PARAMS
+  );
   const data = response.data;
   return data;
 }
