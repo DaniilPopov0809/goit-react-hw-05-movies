@@ -65,7 +65,7 @@ export const Container = styled.div`
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  min-width: 320px;
+  min-width: 480px;
 
   box-sizing: border-box;
 

@@ -74,12 +74,11 @@ const Movies = () => {
                       />
                     }
                     <Wrapper>
-                    <Description>{title}</Description>
-                    <Year>{`${release_date.slice(0, 4)}`}</Year>
+                      <Description>{title}</Description>
+                      <Year>{`${release_date.slice(0, 4)}`}</Year>
                     </Wrapper>
                     <Grade>{`${vote_average.toFixed(2)}`}</Grade>
                   </ItemLink>
-                  
                 </Item>
               );
             }
