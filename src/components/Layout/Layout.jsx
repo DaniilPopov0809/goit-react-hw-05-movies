@@ -2,6 +2,7 @@ import { Suspense, useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from 'components/Navigation/Navigation';
 import Loader from 'components/Loader/Loader';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { ButtonToTop } from '../ButtonToTop/ButtonToTop';
 import Toggle from '../Toggle/Toggle';
 import {
@@ -21,6 +22,8 @@ import {
 import { BurgerModal } from 'components/BurgerModal/BurgerModal';
 import { BurgerButton } from 'components/BurgerButton/BurgerButton';
 
+
+
 const Layout = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isSizeWindow, setIsSizeWindow] = useState(false);
@@ -34,10 +37,23 @@ const Layout = () => {
     };
   }, [isSizeWindow]);
 
+  useEffect(() => {
+     const targetElement = document.querySelector('body');
+    if(isOpenModal) {
+      disableBodyScroll(targetElement);
+    }
+    return () => {
+      if(!isOpenModal) {
+        enableBodyScroll(targetElement);
+      }
+    };
+  }, [isOpenModal])
+
   const windowSize = () => {
     if (window.matchMedia('(min-width: 768px)').matches) {
       setIsOpenModal(false);
       setIsSizeWindow(true);
+
     } else {
       setIsSizeWindow(false);
     }
