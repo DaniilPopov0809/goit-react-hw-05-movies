@@ -43,9 +43,7 @@ const Layout = () => {
       disableBodyScroll(targetElement);
     }
     return () => {
-      if(!isOpenModal) {
         enableBodyScroll(targetElement);
-      }
     };
   }, [isOpenModal])
 
