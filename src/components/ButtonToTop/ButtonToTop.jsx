@@ -1,6 +1,5 @@
 import * as Scroll from 'react-scroll';
-import { Button } from './ButtonToTop.styled';
-import { ToTop } from './ButtonToTop.styled';
+import { Button, ToTop } from './ButtonToTop.styled';
 import { useState, useEffect } from 'react';
 
 export const ButtonToTop = () => {

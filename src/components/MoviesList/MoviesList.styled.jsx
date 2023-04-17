@@ -18,6 +18,9 @@ export const Item = styled.li`
   &:focus,
   &:hover {
     scale: 1.05;
+    @media screen and (max-width: 767px) {
+      scale: 1.03;
+  }
   }
 
   box-shadow: var(--shadow);

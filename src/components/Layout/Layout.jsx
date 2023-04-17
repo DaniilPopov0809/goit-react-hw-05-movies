@@ -1,54 +1,90 @@
-import { Suspense } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { LinkNav } from './Layout.styled';
+import Navigation from 'components/Navigation/Navigation';
 import Loader from 'components/Loader/Loader';
 import { ButtonToTop } from '../ButtonToTop/ButtonToTop';
 import Toggle from '../Toggle/Toggle';
-import { ThemeContext, themes } from '../../contexts/ThemeContexts/ThemeContext';
+import {
+  ThemeContext,
+  themes,
+} from '../../contexts/ThemeContexts/ThemeContext';
 
 import {
-  NavList,
-  NavItem,
   Container,
-  LinkWrap,
   Copyright,
   FooterWrappper,
   LoaderWrapper,
   MailLink,
   Header,
+  BurgerButtonWrap
 } from './Layout.styled';
-import { AiFillHome } from 'react-icons/ai';
-import { MdLocalMovies } from 'react-icons/md';
+import { BurgerModal } from 'components/BurgerModal/BurgerModal';
+import { BurgerButton } from 'components/BurgerButton/BurgerButton';
 
 const Layout = () => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isSizeWindow, setIsSizeWindow] = useState(false);
+
+  useEffect(() => {
+    windowSize();
+    window.addEventListener('resize', windowSize);
+
+    return () => {
+      window.removeEventListener('resize', windowSize);
+    };
+  }, [isSizeWindow]);
+
+  const windowSize = () => {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      setIsOpenModal(false);
+      setIsSizeWindow(true);
+    } else {
+      setIsSizeWindow(false);
+    }
+  };
+
+  const getStatusModal = status => {
+    setIsOpenModal(status);
+  };
+
   return (
     <Container>
       <Header>
-        <NavList>
-          <NavItem>
-            <LinkNav to="/">
-              <AiFillHome />
-              <LinkWrap>Home</LinkWrap>
-            </LinkNav>
-          </NavItem>
-          <NavItem>
-            <LinkNav to="/movies">
-              <MdLocalMovies />
-              <LinkWrap>Movies</LinkWrap>
-            </LinkNav>
-          </NavItem>
-        </NavList>
-        <ThemeContext.Consumer>
+        <BurgerButtonWrap>
+        <BurgerButton
+          getStatusModal={getStatusModal}
+          isOpenModal={isOpenModal}
+        />
+        </BurgerButtonWrap>
+        {isOpenModal && (
+          <BurgerModal
+            getStatusModal={getStatusModal}
+            isOpenModal={isOpenModal}
+          />
+        )}
+        {isSizeWindow && <Navigation />}
+        { isSizeWindow && <ThemeContext.Consumer>
           {({ theme, setTheme }) => (
-            <Toggle
+             <Toggle
               onChange={() => {
                 if (theme === themes.light) setTheme(themes.dark);
                 if (theme === themes.dark) setTheme(themes.light);
               }}
               value={theme === themes.dark}
-            />
+            /> 
           )}
-        </ThemeContext.Consumer>
+        </ThemeContext.Consumer> }
+        {!isSizeWindow && isOpenModal && <ThemeContext.Consumer>
+          {({ theme, setTheme }) => (
+             <Toggle
+              onChange={() => {
+                if (theme === themes.light) setTheme(themes.dark);
+                if (theme === themes.dark) setTheme(themes.light);
+              }}
+              value={theme === themes.dark}
+            /> 
+          )}
+        </ThemeContext.Consumer>}
       </Header>
       <main>
         <Suspense

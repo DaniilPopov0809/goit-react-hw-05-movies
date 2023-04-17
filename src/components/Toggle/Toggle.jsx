@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Input, Slider, Wave, Moon, Sun } from './Toggle.styled';
+import { Input, Slider, Wave, Moon, Sun, Label } from './Toggle.styled';
 
 const Toggle = ({ value, onChange }) => {
   
   return (
-    <label htmlFor="toggler">
+    <Label htmlFor="toggler">
       <Input
         id="toggler"
         type="checkbox"
@@ -18,7 +18,7 @@ const Toggle = ({ value, onChange }) => {
       <Wave />
       {value && <Moon size={20} />}
       {!value && <Sun size={25} />}
-    </label>
+    </Label>
   );
 };
 
