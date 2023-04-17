@@ -53,12 +53,14 @@ export const LinkNav = styled(NavLink)`
   &:hover {
     border-color: var(--accent-color);
 
-    @media screen and (max-width: 767px) {
-   background-color: var(--burger-bg-link-color);
-  }
+    
   }
 
   &.active {
     color: var(--accent-color);
+    @media screen and (max-width: 767px) {
+   background-color: var(--burger-bg-link-color);
+   
+  }
   }
 `;
