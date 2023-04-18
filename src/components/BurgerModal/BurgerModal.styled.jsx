@@ -32,9 +32,8 @@ export const CloseModal = styled.button`
   }
 
   &:active {
-  color: var(--accent-color);
-}
-
+    color: var(--accent-color);
+  }
 `;
 
 export const Wrapper = styled.div`

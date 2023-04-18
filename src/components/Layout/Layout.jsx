@@ -3,12 +3,8 @@ import { Outlet } from 'react-router-dom';
 import Navigation from 'components/Navigation/Navigation';
 import Loader from 'components/Loader/Loader';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import { ButtonToTop } from '../ButtonToTop/ButtonToTop';
-import Toggle from '../Toggle/Toggle';
-import {
-  ThemeContext,
-  themes,
-} from '../../contexts/ThemeContexts/ThemeContext';
+import ButtonToTop from '../ButtonToTop/ButtonToTop';
+import ToggleContext from 'components/ToggleContext/ToggleContext';
 
 import {
   Container,
@@ -17,12 +13,10 @@ import {
   LoaderWrapper,
   MailLink,
   Header,
-  BurgerButtonWrap
+  BurgerButtonWrap,
 } from './Layout.styled';
-import { BurgerModal } from 'components/BurgerModal/BurgerModal';
-import { BurgerButton } from 'components/BurgerButton/BurgerButton';
-
-
+import BurgerModal from 'components/BurgerModal/BurgerModal';
+import BurgerButton from 'components/BurgerButton/BurgerButton';
 
 const Layout = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -38,20 +32,19 @@ const Layout = () => {
   }, [isSizeWindow]);
 
   useEffect(() => {
-     const targetElement = document.querySelector('body');
-    if(isOpenModal) {
+    const targetElement = document.querySelector('body');
+    if (isOpenModal) {
       disableBodyScroll(targetElement);
     }
     return () => {
-        enableBodyScroll(targetElement);
+      enableBodyScroll(targetElement);
     };
-  }, [isOpenModal])
+  }, [isOpenModal]);
 
   const windowSize = () => {
     if (window.matchMedia('(min-width: 768px)').matches) {
       setIsOpenModal(false);
       setIsSizeWindow(true);
-
     } else {
       setIsSizeWindow(false);
     }
@@ -65,10 +58,10 @@ const Layout = () => {
     <Container>
       <Header>
         <BurgerButtonWrap>
-        <BurgerButton
-          getStatusModal={getStatusModal}
-          isOpenModal={isOpenModal}
-        />
+          <BurgerButton
+            getStatusModal={getStatusModal}
+            isOpenModal={isOpenModal}
+          />
         </BurgerButtonWrap>
         {isOpenModal && (
           <BurgerModal
@@ -77,28 +70,8 @@ const Layout = () => {
           />
         )}
         {isSizeWindow && <Navigation />}
-        { isSizeWindow && <ThemeContext.Consumer>
-          {({ theme, setTheme }) => (
-             <Toggle
-              onChange={() => {
-                if (theme === themes.light) setTheme(themes.dark);
-                if (theme === themes.dark) setTheme(themes.light);
-              }}
-              value={theme === themes.dark}
-            /> 
-          )}
-        </ThemeContext.Consumer> }
-        {!isSizeWindow && isOpenModal && <ThemeContext.Consumer>
-          {({ theme, setTheme }) => (
-             <Toggle
-              onChange={() => {
-                if (theme === themes.light) setTheme(themes.dark);
-                if (theme === themes.dark) setTheme(themes.light);
-              }}
-              value={theme === themes.dark}
-            /> 
-          )}
-        </ThemeContext.Consumer>}
+        {isSizeWindow && <ToggleContext />}
+        {!isSizeWindow && isOpenModal && <ToggleContext />}
       </Header>
       <main>
         <Suspense

@@ -1,16 +1,14 @@
 import styled from '@emotion/styled';
 
 export const Header = styled.header`
-/* display: flex;
+  /* display: flex;
 justify-content: space-between;
 align-items: center; */
 `;
 
-
-
 export const BurgerButtonWrap = styled.div`
-padding: 10px 0;
-@media screen and (min-width: 768px) {
+  padding: 10px 0;
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;

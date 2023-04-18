@@ -2,7 +2,7 @@ import { Button} from './BurgerButton.styled';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import PropTypes from 'prop-types';
 
-export const BurgerButton = ({getStatusModal, isOpenModal}) => {
+ const BurgerButton = ({getStatusModal, isOpenModal}) => {
     const handleClick = () => {
         getStatusModal(!isOpenModal);
     }
@@ -15,4 +15,5 @@ BurgerButton.propTypes = {
     getStatusModal: PropTypes.func,
     isOpenModal: PropTypes.bool,
   };
-  
+
+  export default BurgerButton;

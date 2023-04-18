@@ -3,12 +3,12 @@ import { createPortal } from 'react-dom';
 import { RxCross1 } from 'react-icons/rx';
 
 import { Overlay, Modal, CloseModal, Wrapper } from './BurgerModal.styled';
-import { BurgerButton } from 'components/BurgerButton/BurgerButton';
+import  BurgerButton  from 'components/BurgerButton/BurgerButton';
 import Navigation from 'components/Navigation/Navigation';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export function BurgerModal({ getStatusModal, isOpenModal }) {
+const  BurgerModal = ({ getStatusModal, isOpenModal }) => {
   const onCloseModal = () => {
     getStatusModal(false);
   };
@@ -38,3 +38,6 @@ BurgerModal.propTypes = {
   getStatusModal: PropTypes.func,
   isOpenModal: PropTypes.bool,
 };
+
+
+export default BurgerModal;

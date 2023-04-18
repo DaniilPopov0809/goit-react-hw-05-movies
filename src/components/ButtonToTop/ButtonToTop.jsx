@@ -2,7 +2,7 @@ import * as Scroll from 'react-scroll';
 import { Button, ToTop } from './ButtonToTop.styled';
 import { useState, useEffect } from 'react';
 
-export const ButtonToTop = () => {
+const ButtonToTop = () => {
   const [visibleButton, setVisibleButton] = useState(false);
 
   useEffect(() => {
@@ -35,3 +35,5 @@ export const ButtonToTop = () => {
     </>
   );
 };
+
+export default ButtonToTop;
