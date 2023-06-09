@@ -25,7 +25,7 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [foundMovies, setFoundMovies] = useState([]);
 
-    
+  const location = useLocation();
 
   const onSubmit = searchValue => {
     setSearchMovie(searchValue);
