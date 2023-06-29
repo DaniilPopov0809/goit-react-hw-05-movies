@@ -1,10 +1,17 @@
 import styled from '@emotion/styled';
 
-export const Header = styled.header`
-  /* display: flex;
-justify-content: space-between;
-align-items: center; */
+export const Wrapp = styled.header`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
+
+export const Header = styled.header`
+  background: var(--bg-footer-header);
+  box-shadow: var(--shadow);
+`;
+
+
 
 export const BurgerButtonWrap = styled.div`
   padding: 10px 0;
@@ -61,4 +68,10 @@ export const MailLink = styled.a`
   &:hover {
     color: var(--accent-color);
   }
+`;
+
+export const Footer = styled.footer`
+  background: var(--bg-footer-header);
+  margin-top: auto;
+  box-shadow: var(--shadow);
 `;

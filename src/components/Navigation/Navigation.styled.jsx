@@ -13,9 +13,7 @@ export const NavList = styled.ul`
     width: 100%;
   }
 
-  @media screen and (min-width: 768px) {
-  border-bottom: 1px solid var(--link-color);
-  }
+ 
 `;
 
 export const NavItem = styled.li`

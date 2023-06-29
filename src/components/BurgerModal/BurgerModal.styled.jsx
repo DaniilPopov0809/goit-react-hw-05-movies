@@ -13,7 +13,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
+  background: var(--bg-footer-header);
   /* z-index: 1200; */
 `;
 

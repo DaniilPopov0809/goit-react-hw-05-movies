@@ -6,7 +6,6 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 25px;
   padding: 20px 0;
-  border-bottom: 1px solid var(--link-color);
 `;
 
 export const Item = styled.li`

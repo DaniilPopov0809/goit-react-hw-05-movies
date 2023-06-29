@@ -14,6 +14,8 @@ import {
   MailLink,
   Header,
   BurgerButtonWrap,
+  Footer,
+  Wrapp,
 } from './Layout.styled';
 import BurgerModal from 'components/BurgerModal/BurgerModal';
 import BurgerButton from 'components/BurgerButton/BurgerButton';
@@ -55,43 +57,54 @@ const Layout = () => {
   };
 
   return (
-    <Container>
+    <Wrapp>
       <Header>
-        <BurgerButtonWrap>
-          <BurgerButton
-            getStatusModal={getStatusModal}
-            isOpenModal={isOpenModal}
-          />
-        </BurgerButtonWrap>
-        {isOpenModal && (
-          <BurgerModal
-            getStatusModal={getStatusModal}
-            isOpenModal={isOpenModal}
-          />
-        )}
-        {isSizeWindow && <Navigation />}
-        {isSizeWindow && <ToggleContext />}
-        {!isSizeWindow && isOpenModal && <ToggleContext />}
+        <Container>
+          <BurgerButtonWrap>
+            <BurgerButton
+              getStatusModal={getStatusModal}
+              isOpenModal={isOpenModal}
+            />
+          </BurgerButtonWrap>
+          {isOpenModal && (
+            <BurgerModal
+              getStatusModal={getStatusModal}
+              isOpenModal={isOpenModal}
+            />
+          )}
+          {isSizeWindow && <Navigation />}
+          {isSizeWindow && <ToggleContext />}
+          {!isSizeWindow && isOpenModal && <ToggleContext />}
+        </Container>
       </Header>
+
       <main>
-        <Suspense
-          fallback={
-            <LoaderWrapper>
-              <Loader />
-            </LoaderWrapper>
-          }
-        >
-          <Outlet />
-        </Suspense>
+        <Container>
+          <Suspense
+            fallback={
+              <LoaderWrapper>
+                <Loader />
+              </LoaderWrapper>
+            }
+          >
+            <Outlet />
+          </Suspense>
+        </Container>
       </main>
-      <footer>
-        <FooterWrappper>
-          <Copyright>©2023 Daniil Popov</Copyright>
-          <MailLink href="mailto:x6uhrox@gmail.com">x6uhrox@gmail.com</MailLink>
-        </FooterWrappper>
-      </footer>
+      <Footer>
+        <Container>
+          <FooterWrappper>
+            <Copyright>
+              All rights reserved © {new Date().getFullYear()} by Daniil Popov
+            </Copyright>
+            <MailLink href="mailto:x6uhrox@gmail.com">
+              x6uhrox@gmail.com
+            </MailLink>
+          </FooterWrappper>
+        </Container>
+      </Footer>
       <ButtonToTop />
-    </Container>
+    </Wrapp>
   );
 };
 

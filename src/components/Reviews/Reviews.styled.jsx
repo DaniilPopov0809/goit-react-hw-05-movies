@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  border-bottom: 1px solid var(--link-color);
+  /* border-bottom: 1px solid var(--link-color); */
   padding: 10px 0;
 `;
 
