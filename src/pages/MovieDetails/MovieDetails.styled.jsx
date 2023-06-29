@@ -78,6 +78,7 @@ export const AdditionalLink = styled(NavLink)`
   color: var(--link-color);
   border-radius: 10px;
   border: 1px solid var(--link-color);
+  text-shadow: var(--shadow);
 
   transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 

@@ -17,6 +17,7 @@ export const Button = styled.button`
   background-color: transparent;
   font-size: 20px;
   color: var(--link-color);
+  text-shadow: var(--shadow);
 
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);

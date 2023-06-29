@@ -41,6 +41,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--link-color);
+  text-shadow: var(--shadow);
   background: no-repeat center/cover var(--url);
 }
 
