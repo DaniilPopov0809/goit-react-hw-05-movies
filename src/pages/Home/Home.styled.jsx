@@ -9,7 +9,6 @@ export const Title = styled.h1`
 `;
 
 export const Button = styled.button`
-  
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 15px;
@@ -18,13 +17,13 @@ export const Button = styled.button`
   font-size: 20px;
   color: var(--link-color);
   text-shadow: var(--shadow);
+  font-family: 'Roboto', sans-serif;
 
   transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     border-color: var(--accent-color);
-    
   }
   &:focus {
     border-color: var(--accent-color);
@@ -37,7 +36,7 @@ export const Button = styled.button`
 `;
 
 export const TitleWrap = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   column-gap: 20px;
   padding-top: 10px;
